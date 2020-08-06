@@ -70,16 +70,6 @@
         <label><%- captionText %></label>
         <textarea name="caption" />
       </div>
-      <div class="form-group align">
-        <label><%- imageAlignText %></label>
-        <select name="align">
-          <% _.each(Object.keys(options.imageClasses), function(align){ %>
-              <option value="<%- align %>">
-              <%- options.imageClasses[align] %>
-              </option>
-          <% }); %>
-        <select>
-      </div>
     </div>
 
     <input type="submit" class="plone-btn" name="cancel" value="<%- cancelBtn %>" />
