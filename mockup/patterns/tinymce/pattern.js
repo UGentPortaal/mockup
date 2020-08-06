@@ -208,7 +208,7 @@ define([
       var self = this;
       if (self.linkModal === null) {
         var $el = $('<div/>').insertAfter(self.$el);
-        var linkTypes = ['internal', 'upload', 'external', 'email', 'anchor'];
+        var linkTypes = ['internal', 'external', 'email'];
         if(!self.options.upload){
           linkTypes.splice(1, 1);
         }
@@ -227,7 +227,7 @@ define([
     addImageClicked: function() {
       var self = this;
       if (self.imageModal === null) {
-        var linkTypes = ['image', 'uploadImage', 'externalImage'];
+        var linkTypes = ['image'];
         if(!self.options.upload){
           linkTypes.splice(1, 1);
         }
@@ -424,7 +424,7 @@ define([
          * .plone-modal-dialog and use that as the ui_container
          * setting for TinyMCE to anchor it there. This ensures that
          * sub-menus are displayed relative to the modal rather than
-         * the document body. 
+         * the document body.
          * Generate a random id and append it, because there might be
          * more than one TinyMCE in the DOM.
          */
