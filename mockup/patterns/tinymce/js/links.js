@@ -461,6 +461,17 @@ define([
     },
 
     generateModalHtml: function() {
+      var imageScales = [];
+      var allowedImageScales = [
+        'original', 'icon', 'thumb', 'small', 'medium', 'large'
+      ];
+      for (var i in this.options.imageScales) {
+        var scale = this.options.imageScales[i];
+        if (allowedImageScales.includes(scale.value)) {
+          imageScales.push(scale);
+        }
+      }
+
       return this.template({
         options: this.options,
         upload: this.options.upload,
@@ -488,7 +499,7 @@ define([
         captionFromDescriptionText: this.options.text.captionFromDescription,
         captionText: this.options.text.caption,
         scaleText: this.options.text.scale,
-        imageScales: this.options.imageScales,
+        imageScales: imageScales,
         cancelBtn: this.options.text.cancelBtn,
         insertBtn: this.options.text.insertBtn
       });
