@@ -242,6 +242,15 @@ define([
             selectableTypes: self.options.imageTypes
           }
         });
+
+        // integration with image libraries
+        if (options.tiny.hasOwnProperty('image_library_base_path')) {
+          options.relatedItems.basePath = options.tiny.image_library_base_path;
+        }
+        if (options.tiny.hasOwnProperty('image_library_favorites')) {
+          options.relatedItems.favorites = options.tiny.image_library_favorites;
+        }
+
         var $el = $('<div/>').insertAfter(self.$el);
         self.imageModal = new LinkModal($el, options);
         self.imageModal.show();
