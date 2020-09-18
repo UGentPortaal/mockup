@@ -70,14 +70,7 @@
     </div><!-- / tabs -->
 
     <div class="common-controls">
-      <div class="form-group">
-        <label><%- target %></label>
-        <select name="target">
-          <% _.each(targetList, function(target){ %>
-            <option value="<%- target.value %>"><%- target.text %></option>
-          <% }); %>
-        </select>
-      </div>
+      <input type="hidden" name="target" value="" />
       <div class="form-group">
         <label><%- titleText %></label>
         <input type="text" name="title" />
