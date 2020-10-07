@@ -42,12 +42,12 @@ define([
     defaults: {
       ajaxUrl: null,
       defaultSortOn: '',
-      perPage: 7,
+      perPage: 5,
       quietMillis: 350,
       minimumInputLength: 4,
       inputSelector: 'input[type="text"]',
       itemTemplate: '<li class="search-result <%- state %>">' +
-        '<h4 class="title"><a href="<%- url %>"><%- title %></a></h4>' +
+        '<strong><a class="<%- type %>" href="<%- url %>"><%- title %></a></strong>' +
         '<p class="description"><%- description %></p>' +
       '</li>',
     },
@@ -169,6 +169,14 @@ define([
           $li.prepend(nav);
           self.$results.append($li);
         }
+
+        // add bottom part with all and domain search links
+        var $bottom = $('<li class="bottom"><a href="@@search?SearchableText=' + self.$input.val() + '">Toon alle items</a></li>');
+        var $domainsearch = $('<li><a href="https://google.be/search?q=' + self.$input.val() + ' site:ugent.be">Zoek binnen alle UGent-websites</a></li>');
+
+        self.$results.append($bottom);
+        self.$results.append($domainsearch);
+
       }
       self.position();
     },
@@ -179,10 +187,12 @@ define([
 
       self.$el.addClass('livesearch-active');
       var pos = self.$input.position();
-      self.$results.width(self.$el.outerWidth());
+      // adjust width of results drop down
+      self.$results.width(self.$el.outerWidth() + 200);
+      // adjust position left of the reusults drop down
       self.$results.css({
         top: pos.top + self.$input.outerHeight(),
-        left: pos.left
+        left: pos.left - 200
       });
       self.$results.show();
     },
