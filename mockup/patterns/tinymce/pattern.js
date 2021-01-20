@@ -207,7 +207,7 @@ define([
       var self = this;
       if (self.linkModal === null) {
         var $el = $('<div/>').insertAfter(self.$el);
-        var linkTypes = ['internal', 'external', 'email'];
+        var linkTypes = ['internal', 'external', 'email', 'anchor'];
         if(!self.options.upload){
           linkTypes.splice(1, 1);
         }
