@@ -373,6 +373,10 @@ define([
       // include in widgets.min.css
       tinyOptions.skin = false;
 
+      // remove bullet and number style options (PCM-2048)
+      tinyOptions.advlist_bullet_styles = '';
+      tinyOptions.advlist_number_styles = '';
+
       tinyOptions.init_instance_callback = function(editor) {
         if (self.tiny === undefined || self.tiny === null) {
           self.tiny = editor;
